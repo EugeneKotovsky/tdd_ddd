@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 public class PhoneBookTest {
 
     @Test
@@ -42,6 +44,21 @@ public class PhoneBookTest {
         Assertions.assertEquals("12345", number);
     }
 
+    @Test
+    public void testPrintAllNamesSorted() {
+        PhoneBook phoneBook = new PhoneBook();
+        phoneBook.add("Charlie", "333");
+        phoneBook.add("Alice", "111");
+        phoneBook.add("Bob", "222");
+        List<String> names = phoneBook.printAllNames();
+        Assertions.assertEquals(List.of("Alice", "Bob", "Charlie"), names);
+    }
 
+    @Test
+    public void testPrintAllNamesEmpty() {
+        PhoneBook phoneBook = new PhoneBook();
+        List<String> names = phoneBook.printAllNames();
+        Assertions.assertTrue(names.isEmpty());
+    }
 
 }

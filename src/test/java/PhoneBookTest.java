@@ -25,4 +25,13 @@ public class PhoneBookTest {
         int result = phoneBook.add("Bob", "11111");
         Assertions.assertEquals(2, result);
     }
+
+    @Test
+    public void testFindByNumberExists() {
+        PhoneBook phoneBook = new PhoneBook();
+        phoneBook.add("Alice", "12345");
+        String name = phoneBook.findByNumber("12345");
+        Assertions.assertEquals("Alice", name);
+    }
+
 }
